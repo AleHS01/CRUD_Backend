@@ -1,0 +1,11 @@
+{
+  "name": "crud_backend",
+  "version": "1.0.0",
+  "description": "CRUD App Backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
