@@ -1,9 +1,10 @@
 const express = require("express");
 const app = express();
-const db = require("./db");
+const db = require("./database/db.js");
+const { Student, Campus } = require("./database/models/index.js");
 const PORT = 8080;
 
-const syncDB = () => db.sync();
+//const syncDB = async () => await db.sync({ force: true });
 
 const serverRun = () => {
   app.listen(PORT, () => {
@@ -11,5 +12,12 @@ const serverRun = () => {
   });
 };
 
-syncDB();
-serverRun();
+async function main() {
+  //await syncDB();
+  console.log("This is going to print models: ", db.models);
+  await db.drop();
+  await db.sync({ force: true });
+  await serverRun();
+}
+
+main();

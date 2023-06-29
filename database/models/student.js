@@ -1,17 +1,18 @@
 const { DataTypes } = require("sequelize");
 const db = require("../db");
 
-const Students = db.define("students", {
+const Student = db.define("Student", {
   id: {
     type: DataTypes.INTEGER,
+    autoIncrement: true,
     allowNull: false,
     primaryKey: true,
   },
-  firstName: {
+  firstname: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  lastName: {
+  lastname: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -24,7 +25,7 @@ const Students = db.define("students", {
       },
     },
   },
-  imageUrl: {
+  imageurl: {
     type: DataTypes.STRING,
     defaultValue: "https://picsum.photos/200",
   },
@@ -37,4 +38,4 @@ const Students = db.define("students", {
   },
 });
 
-module.exports = Students;
+module.exports = Student;
