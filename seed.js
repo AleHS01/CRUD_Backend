@@ -112,7 +112,7 @@ const seedCampuses = [
 
 const seed = async () => {
   await Students.bulkCreate(seedStudent);
-  // await Campuses.bulkCreate(seedCampuses);
+  await Campuses.bulkCreate(seedCampuses);
 };
 
 seed().then(() => process.exit());
