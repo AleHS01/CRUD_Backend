@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { Campus } = require("../db/models");
+const { Campus } = require("../database/models");
 
 // Root here is localhost:8080/api/shoes/
 router.get("/", async (req, res, next) => {
