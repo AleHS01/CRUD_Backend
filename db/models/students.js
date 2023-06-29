@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize");
 const db = require("../db");
 
-const Students = db.define("shoes", {
+const Students = db.define("students", {
   firstName: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -13,10 +13,15 @@ const Students = db.define("shoes", {
   email: {
     type: DataTypes.STRING,
     allowNull: false,
+    validate: {
+      isEmail: {
+        msg: "Invalid Email Format",
+      },
+    },
   },
   imageUrl: {
     type: DataTypes.STRING,
-    defaultValue: "",
+    defaultValue: "https://picsum.photos/200",
   },
   gpa: {
     type: DataTypes.DECIMAL,

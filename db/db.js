@@ -8,7 +8,7 @@ url:localhost
 port:5432
 database name: crud_database <- need to create it in your machine, 
 
-then run node seed.js, and then npm run start to start the server with nodemon
+then run 'node seed.js', and then 'node db/db.js'  to start the server with nodemon
 once the server is started, you should see if it appear in the console "DB connection works"
 that's what I use to test the connection
 */
