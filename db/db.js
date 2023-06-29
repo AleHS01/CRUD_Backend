@@ -15,9 +15,16 @@ that's what I use to test the connection
 
 //From Sequelize Docs: const sequelize = new Sequelize('postgres://user:pass@example.com:5432/dbname')
 
-const db = new Sequelize("postgres://postgres@localhost:5432/crud_database", {
-  logging: false,
-});
+// const db = new Sequelize("postgres://postgres@localhost:5432/crud_database", {
+//   logging: false,
+// });
+
+const db = new Sequelize(
+  "postgres://elaineluzung@localhost:5432/crud_database",
+  {
+    logging: true,
+  }
+);
 
 // Testing Connection of the db
 db.authenticate()

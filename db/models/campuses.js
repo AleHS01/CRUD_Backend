@@ -4,9 +4,10 @@ const db = require("../db");
 //name not empty or null, imageUrl with default val,
 // address not empty or null, description large text
 
-const Campuses = db.define("campuses", {
+const Campuses = db.define("campus", {
     id: {
         type: DataTypes.INTEGER,
+        autoIncrement: true,
         allowNull: false,
         primaryKey: true,
     },
@@ -14,7 +15,7 @@ const Campuses = db.define("campuses", {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    imageUrl: {
+    imageurl: {
         type: DataTypes.STRING,
         defaultValue: "",
     },

@@ -9,73 +9,73 @@ const tempCampusImgURl =
 //Students dummy data
 const seedStudent = [
   {
-    firstName: "John",
-    lastName: "Doe",
+    firstname: "John",
+    lastname: "Doe",
     email: "johndoe@example.com",
-    imageUrl: tempImgURL,
+    imageurl: tempImgURL,
     gpa: 3.7,
   },
   {
-    firstName: "Jane",
-    lastName: "Smith",
+    firstname: "Jane",
+    lastname: "Smith",
     email: "janesmith@example.com",
-    imageUrl: tempImgURL,
+    imageurl: tempImgURL,
     gpa: 3.9,
   },
   {
-    firstName: "Michael",
-    lastName: "Johnson",
+    firstname: "Michael",
+    lastname: "Johnson",
     email: "michaeljohnson@example.com",
-    imageUrl: tempImgURL,
+    imageurl: tempImgURL,
     gpa: 3.5,
   },
   {
-    firstName: "Emily",
-    lastName: "Williams",
+    firstname: "Emily",
+    lastname: "Williams",
     email: "emilywilliams@example.com",
-    imageUrl: tempImgURL,
+    imageurl: tempImgURL,
     gpa: 4.0,
   },
   {
-    firstName: "David",
-    lastName: "Brown",
+    firstname: "David",
+    lastname: "Brown",
     email: "davidbrown@example.com",
-    imageUrl: tempImgURL,
+    imageurl: tempImgURL,
     gpa: 3.2,
   },
   {
-    firstName: "Sophia",
-    lastName: "Davis",
+    firstname: "Sophia",
+    lastname: "Davis",
     email: "sophiadavis@example.com",
-    imageUrl: tempImgURL,
+    imageurl: tempImgURL,
     gpa: 3.8,
   },
   {
-    firstName: "Daniel",
-    lastName: "Anderson",
+    firstname: "Daniel",
+    lastname: "Anderson",
     email: "danielanderson@example.com",
-    imageUrl: tempImgURL,
+    imageurl: tempImgURL,
     gpa: 3.6,
   },
   {
-    firstName: "Olivia",
-    lastName: "Martinez",
+    firstname: "Olivia",
+    lastname: "Martinez",
     email: "oliviamartinez@example.com",
-    imageUrl: tempImgURL,
+    imageurl: tempImgURL,
     gpa: 3.9,
   },
   {
-    firstName: "William",
-    lastName: "Taylor",
+    firstname: "William",
+    lastname: "Taylor",
     email: "williamtaylor@example.com",
-    imageUrl: tempImgURL,
+    imageurl: tempImgURL,
     gpa: 3.4,
   },
   {
-    firstName: "Isabella",
-    lastName: "Thomas",
+    firstname: "Isabella",
+    lastname: "Thomas",
     email: "isabellathomas@example.com",
-    imageUrl: tempImgURL,
+    imageurl: tempImgURL,
     gpa: 3.7,
   },
 ];
@@ -83,27 +83,27 @@ const seedStudent = [
 const seedCampuses = [
   {
     name: "Central University",
-    imageUrl: tempCampusImgURl,
+    imageurl: tempCampusImgURl,
     address: "123 Main St, Orlando",
     description:
       "A vibrant campus fostering academic excellence and personal growth.",
   },
   {
     name: "Sunset College",
-    imageUrl: tempCampusImgURl,
+    imageurl: tempCampusImgURl,
     address: "456 Elm St, California",
     description:
       "A picturesque campus offering diverse educational opportunities.",
   },
   {
     name: "Northern State University",
-    imageUrl: tempCampusImgURl,
+    imageurl: tempCampusImgURl,
     address: "789 Oak St, Boston",
     description: "An innovative campus dedicated to shaping future leaders.",
   },
   {
     name: "Greenfield Institute",
-    imageUrl: tempCampusImgURl,
+    imageurl: tempCampusImgURl,
     address: "321 Pine St, New York",
     description:
       "A nurturing campus promoting creativity and intellectual exploration.",
@@ -111,8 +111,18 @@ const seedCampuses = [
 ];
 
 const seed = async () => {
-  await Students.bulkCreate(seedStudent);
-  await Campuses.bulkCreate(seedCampuses);
+  await Campuses.bulkCreate(seedCampuses, {
+    fields: ["id", "name", "imageurl", "address", "description"]
+  });
+  //await Students.bulkCreate(seedStudent);
 };
 
 seed().then(() => process.exit());
+
+/*
+Employee.bulkCreate(dataArray, 
+    {
+        fields:["id", "name", "address"] ,
+        updateOnDuplicate: ["name"] 
+    } )
+*/
