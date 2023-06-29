@@ -1,5 +1,5 @@
-const db = require("./database");
-const { Students, Campuses } = require("./database/models");
+//const db = require("./database/db.js");
+const { Student, Campus } = require("./database/models");
 
 const tempImgURL =
   "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png";
@@ -111,10 +111,8 @@ const seedCampuses = [
 ];
 
 const seed = async () => {
-  await Campuses.bulkCreate(seedCampuses, {
-    fields: ["id", "name", "imageurl", "address", "description"],
-  });
-  //await Students.bulkCreate(seedStudent);
+  await Campus.bulkCreate(seedCampuses);
+  await Student.bulkCreate(seedStudent);
 };
 
 seed().then(() => process.exit());

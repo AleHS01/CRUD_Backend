@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const db = require("./database/db.js");
-const { Students, Campuses } = require("./database/models/index.js");
+const { Student, Campus } = require("./database/models/index.js");
 const PORT = 8080;
 
 //const syncDB = async () => await db.sync({ force: true });

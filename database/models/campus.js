@@ -4,7 +4,7 @@ const db = require("../db");
 //name not empty or null, imageUrl with default val,
 // address not empty or null, description large text
 
-const Campuses = db.define("Campus", {
+const Campus = db.define("Campus", {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -28,4 +28,4 @@ const Campuses = db.define("Campus", {
     },
 });
 
-module.exports = Campuses;
+module.exports = Campus;
