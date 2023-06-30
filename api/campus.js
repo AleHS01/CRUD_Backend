@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { Campus } = require("../database/models");
+const { Campus, Student } = require("../database/models");
 
 // Root here is localhost:8080/api/shoes/
 router.get("/", async (req, res, next) => {
@@ -13,6 +13,19 @@ router.get("/", async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+});
+
+router.get("/:id", async (req, res, next) => {
+  const { id } = req.params;
+  const campus = await Campus.findByPk(id);
+
+  // const campus = Campus.findByPk(id, {
+  //   include: Student,
+  // });
+
+  campus
+    ? res.status(200).json(campus)
+    : res.status(404).send("Campus not Found");
 });
 
 module.exports = router;
