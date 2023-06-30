@@ -9,7 +9,6 @@ app.use(cors);
 // Mount on API
 app.use("/api", require("./api"));
 
-
 //const syncDB = async () => await db.sync({ force: true });
 
 const serverRun = () => {
@@ -21,7 +20,7 @@ const serverRun = () => {
 async function main() {
   //await syncDB();
   console.log("This is going to print models: ", db.models);
-  //await db.drop();
+  await db.drop();
   //await db.sync({ force: true });
   await db.sync();
   //await seed();

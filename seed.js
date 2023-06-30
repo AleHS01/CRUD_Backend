@@ -14,6 +14,7 @@ const seedStudent = [
     email: "johndoe@example.com",
     imageurl: tempImgURL,
     gpa: 3.7,
+    CampusId: 1,
   },
   {
     firstname: "Jane",
@@ -21,6 +22,7 @@ const seedStudent = [
     email: "janesmith@example.com",
     imageurl: tempImgURL,
     gpa: 3.9,
+    CampusId: 4,
   },
   {
     firstname: "Michael",
@@ -28,6 +30,7 @@ const seedStudent = [
     email: "michaeljohnson@example.com",
     imageurl: tempImgURL,
     gpa: 3.5,
+    CampusId: 3,
   },
   {
     firstname: "Emily",
@@ -35,6 +38,7 @@ const seedStudent = [
     email: "emilywilliams@example.com",
     imageurl: tempImgURL,
     gpa: 4.0,
+    CampusId: 2,
   },
   {
     firstname: "David",
@@ -42,6 +46,7 @@ const seedStudent = [
     email: "davidbrown@example.com",
     imageurl: tempImgURL,
     gpa: 3.2,
+    CampusId: 3,
   },
   {
     firstname: "Sophia",
@@ -49,6 +54,7 @@ const seedStudent = [
     email: "sophiadavis@example.com",
     imageurl: tempImgURL,
     gpa: 3.8,
+    CampusId: 1,
   },
   {
     firstname: "Daniel",
@@ -56,6 +62,7 @@ const seedStudent = [
     email: "danielanderson@example.com",
     imageurl: tempImgURL,
     gpa: 3.6,
+    CampusId: 1,
   },
   {
     firstname: "Olivia",
@@ -63,6 +70,7 @@ const seedStudent = [
     email: "oliviamartinez@example.com",
     imageurl: tempImgURL,
     gpa: 3.9,
+    CampusId: 2,
   },
   {
     firstname: "William",
@@ -70,6 +78,7 @@ const seedStudent = [
     email: "williamtaylor@example.com",
     imageurl: tempImgURL,
     gpa: 3.4,
+    CampusId: 4,
   },
   {
     firstname: "Isabella",
@@ -77,6 +86,7 @@ const seedStudent = [
     email: "isabellathomas@example.com",
     imageurl: tempImgURL,
     gpa: 3.7,
+    CampusId: 3,
   },
 ];
 
