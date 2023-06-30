@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bodyParser = require("body-parser");
 const { Student, Campus } = require("../database/models");
+const { route } = require("./student");
 
 //get All student when this endpoints get hit "/student"
 router.get("/", async (req, res, next) => {
@@ -53,11 +54,25 @@ then do Student.create({data}) to create basically a new Student in the data bas
 router.post("/addStudent", bodyParser.json(), async (req, res, next) => {
   try {
     console.log(req.body);
-    const newStudent = Student.create(req.body);
+    const newStudent = await Student.create(req.body);
     res.status(201).json(newStudent);
   } catch (error) {
     console.log(error);
+    next(error);
   }
 });
 
+router.delete("/removeStudent/:id", async (req, res, next) => {
+  const { id } = req.params; //getting the id from the parameter list
+  try {
+    //firt we find the student we want to delete by id
+    const studentToDelete = await Student.findByPk(id);
+    //then we destroy the student
+    await studentToDelete.destroy();
+    res.status(201).send("Deleted Successful");
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+});
 module.exports = router;
