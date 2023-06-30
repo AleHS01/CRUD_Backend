@@ -45,4 +45,17 @@ router.post("/addCampus", bodyParser.json(), async (req, res, next) => {
   }
 });
 
+router.delete("/removeCampus/:id", async (req, res, next) => {
+  const { id } = req.params; //getting the id from the parameter list
+  try {
+    const campusToDelete = await Campus.findByPk(id);
+    await campusToDelete.destroy();
+    
+    res.status(201).send("Deleted Successful");
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+});
+
 module.exports = router;

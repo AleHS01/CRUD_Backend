@@ -4,11 +4,11 @@ const db = require("./database/db.js");
 const { Student, Campus } = require("./database/models/index.js");
 const PORT = 8080;
 const cors = require("cors");
+app.use(cors);
 
 // Mount on API
 app.use("/api", require("./api"));
 
-app.use(cors);
 
 //const syncDB = async () => await db.sync({ force: true });
 
