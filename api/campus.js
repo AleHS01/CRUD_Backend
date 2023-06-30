@@ -37,7 +37,7 @@ router.get("/:id", async (req, res, next) => {
 router.post("/addCampus", bodyParser.json(), async (req, res, next) => {
   try {
     console.log(req.body);
-    const newCampus = Campus.create(req.body);
+    const newCampus = await Campus.create(req.body);
     res.status(201).json(newCampus);
   } catch (error) {
     console.log(error);
