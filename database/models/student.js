@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 const db = require("../db");
+const Campus = require("./campus");
 
 const Student = db.define("Student", {
   id: {
@@ -34,6 +35,13 @@ const Student = db.define("Student", {
     validate: {
       min: 0.0,
       max: 4.0,
+    },
+  },
+  CampusId: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: Campus,
+      key: "id",
     },
   },
 });
