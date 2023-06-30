@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const bodyParser = require("body-parser");
 const { Student, Campus } = require("../database/models");
 
 //get All student when this endpoints get hit "/student"
@@ -45,31 +46,18 @@ router.get("/:id", async (req, res, next) => {
 
 /* 
 What is happenig here when we want to add a new student in the url of the endpoint we expect the data to arrievd
-we expect the firstname, lastname, email, imageurl, gpa, campusId, then we discontruct req.params and get the data
+we expect the firstname, lastname, email, imageurl, gpa, campusId, then we discontruct req.body, or passing it straight and get the data
 then do Student.create({data}) to create basically a new Student in the data base,
 */
 
-router.post(
-  "/add/:firstname/:lastname/:email/:imageurl/:gpa/:campusId",
-  async (req, res, next) => {
-    const { firstname, lastname, email, imageurl, gpa, campusId } = req.params;
-    const newStudent = await Student.create({
-      firstname: firstname | "Unknown",
-      lastname: lastname | "Unknown",
-      email: email | "unknown@example.com",
-      imageurl:
-        imageurl |
-        "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png",
-      gpa: gpa | 0.0,
-      campusId: campusId | null,
-    });
-
-    //putting some data in case what we get is undefined or null
-
-    //returning the student just in case, they need it for re-rendering
-    res.status(200).json(student);
-    res.status(404).send("Error while adding student to the database");
+router.post("/addStudent", bodyParser.json(), async (req, res, next) => {
+  try {
+    console.log(req.body);
+    const newStudent = Student.create(req.body);
+    res.status(201).json(newStudent);
+  } catch (error) {
+    console.log(error);
   }
-);
+});
 
 module.exports = router;
