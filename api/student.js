@@ -76,4 +76,33 @@ router.delete("/removeStudent/:id", async (req, res, next) => {
     next(error);
   }
 });
+
+router.put("/updateStudent/:id", bodyParser.json(), async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    //first we find the student we want to update
+    const student = await Student.findByPk(id);
+    /*then call the update method on the student, and pass the req.body, 
+    it's simlar to creating a new student (POST), just that it will update the records
+    if we pass let's say just the name inside the body, it will update just the databse with the new name
+    so it only modifies the attributes that are in the body not all of them
+    */
+
+    //from what I see anytime we are woring with Sequelize or
+    //the db we have to put await, or we will recieve an empty object
+
+    if (student) {
+      console.log(req.body);
+      await student.update(req.body);
+      await student.save(); //according to documentation it save the data
+      res.status(201).json(student);
+    } else {
+      res.status(404).send("Student not found");
+    }
+  } catch (error) {
+    console.log(error);
+    next();
+  }
+});
+
 module.exports = router;

@@ -3,14 +3,14 @@ const router = express.Router();
 const bodyParser = require("body-parser");
 const { Campus, Student } = require("../database/models");
 
-// Root here is localhost:8080/api/shoes/
+// Root here is localhost:8080/api/campus/
 router.get("/", async (req, res, next) => {
   try {
     const allCampus = await Campus.findAll();
 
     allCampus
-      ? res.status(200).json(allCampus) // if allShoes is truthy
-      : res.status(404).send("Campuses List Not Found"); // if allShoes is falsey
+      ? res.status(200).json(allCampus) // if allCampus is truthy
+      : res.status(404).send("Campuses List Not Found"); // if allCampus is falsey
   } catch (error) {
     next(error);
   }
