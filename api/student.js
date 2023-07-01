@@ -77,6 +77,8 @@ router.delete("/removeStudent/:id", async (req, res, next) => {
   }
 });
 
+//Route to edit student info, we recieve an id, with it, we get the student,
+//and update the corresponding data send in the body
 router.put("/updateStudent/:id", bodyParser.json(), async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -92,7 +94,6 @@ router.put("/updateStudent/:id", bodyParser.json(), async (req, res, next) => {
     //the db we have to put await, or we will recieve an empty object
 
     if (student) {
-      console.log(req.body);
       await student.update(req.body);
       await student.save(); //according to documentation it save the data
       res.status(201).json(student);
@@ -101,7 +102,7 @@ router.put("/updateStudent/:id", bodyParser.json(), async (req, res, next) => {
     }
   } catch (error) {
     console.log(error);
-    next();
+    next(error);
   }
 });
 

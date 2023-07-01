@@ -58,4 +58,25 @@ router.delete("/removeCampus/:id", async (req, res, next) => {
   }
 });
 
+//Route to edit student info, we recieve an id, with it, we get the student,
+//and update the corresponding data send in the body
+
+router.put("/updateCampus/:id", bodyParser.json(), async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const campus = await Campus.findByPk(id);
+
+    if (campus) {
+      await campus.update(req.body);
+      await campus.save();
+      res.status(201).json(campus);
+    } else {
+      res.status(404).send("Campus not found");
+    }
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+});
+
 module.exports = router;
