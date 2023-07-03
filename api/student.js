@@ -30,14 +30,15 @@ or can discontructted: const {id, name} = req.params
 //get the student with specified id when this endpoints get hit "/student/id"
 router.get("/:id", async (req, res, next) => {
   const { id } = req.params;
-  const student = await Student.findByPk(id); //this just get the student without the campus object
+  //const student = await Student.findByPk(id); //this just get the student without the campus object
 
   //what is below should work, it should return a student and also the campus is associate with,
   // but since the campusID column is null, I don't think will work yet, until we fill that gap
-
-  // const student = Student.findByPk(id, {
-  //   include: Campus,
-  // });
+  const student = await Student.findByPk(id, {
+    include: {
+      model: Campus,
+    },
+  });
   student
     ? res.status(200).json(student)
     : res.status(404).send("Student not Found");

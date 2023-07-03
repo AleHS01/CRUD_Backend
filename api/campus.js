@@ -19,11 +19,11 @@ router.get("/", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
-    const campus = await Campus.findByPk(id);
+    //const campus = await Campus.findByPk(id);
 
-    // const campus = Campus.findByPk(id, {
-    //   include: Student,
-    // });
+    const campus = await Campus.findByPk(id, {
+      include: Student,
+    });
 
     campus
       ? res.status(200).json(campus)
@@ -50,7 +50,7 @@ router.delete("/removeCampus/:id", async (req, res, next) => {
   try {
     const campusToDelete = await Campus.findByPk(id);
     await campusToDelete.destroy();
-    
+
     res.status(201).send("Deleted Successful");
   } catch (error) {
     console.log(error);

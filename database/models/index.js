@@ -7,6 +7,7 @@ const Campus = require("./campus");
 // Campuses.hasMany(Students, { through: "CampusesStudents" });
 // Students.belongsTo(Campuses, { through: "CampusesStudents" });
 Campus.hasMany(Student);
+// Student.belongsTo(Campus, { foreignKey: "campusId" });
 Student.belongsTo(Campus);
 
 module.exports = {
