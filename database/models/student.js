@@ -34,8 +34,12 @@ const Student = db.define("Student", {
     validate: {
       min: 0.0,
       max: 4.0,
-    },
+    }
   },
+    CampusId: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+  }
 });
 
 module.exports = Student;
