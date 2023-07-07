@@ -15,7 +15,7 @@ that's what I use to test the connection
 
 //From Sequelize Docs: const sequelize = new Sequelize('postgres://user:pass@example.com:5432/dbname')
 
-const db = new Sequelize("postgres://postgres@localhost:5432/crud_database", {
+const db = new Sequelize("postgres://ttp23crud_user:XNxGl2HOV9hhQWHgBSIVQYe5SpDMKZEQ@dpg-cik22cp8g3nc2gf3ugpg-a.oregon-postgres.render.com/ttp23crud", 'ttp23crud_user', 'XNxGl2HOV9hhQWHgBSIVQYe5SpDMKZEQ',  {
   logging: false,
 });
 
