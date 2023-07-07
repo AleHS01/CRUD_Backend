@@ -121,11 +121,14 @@ const seedCampuses = [
 ];
 
 const seed = async () => {
+  console.log("Hey It's creating data");
   await Campus.bulkCreate(seedCampuses);
   await Student.bulkCreate(seedStudent);
 };
 
-seed().then(() => process.exit());
+//seed().then(() => process.exit());
+
+module.exports = seed;
 
 /*
 Employee.bulkCreate(dataArray, 

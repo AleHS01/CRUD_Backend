@@ -4,6 +4,7 @@ const db = require("./database/db.js");
 const { Student, Campus } = require("./database/models/index.js");
 const PORT = 8080;
 const cors = require("cors");
+const seed = require("./seed.js");
 app.use(cors());
 
 // Mount on API
@@ -24,6 +25,7 @@ async function main() {
   //await db.sync({ force: true });
   await db.sync();
   //await seed();
+  await seed().then(() => process.exit());
   await serverRun();
 }
 

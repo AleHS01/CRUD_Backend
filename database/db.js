@@ -1,4 +1,5 @@
 const { Sequelize } = require("sequelize");
+const dotenv = require("dotenv").config();
 // const { name } = require("../package.json");
 
 /*
@@ -15,9 +16,18 @@ that's what I use to test the connection
 
 //From Sequelize Docs: const sequelize = new Sequelize('postgres://user:pass@example.com:5432/dbname')
 
-const db = new Sequelize("postgres://postgres@localhost:5432/crud_database", {
+//original
+// const db = new Sequelize("postgres://postgres@localhost:5432/crud_database",
+//   logging: false,
+// });
+//new version
+const db = new Sequelize(process.env.POSTGRES_URL + "?sslmode=require", {
   logging: false,
 });
+
+// const pool = new Pool({
+//     connectionString: process.env.POSTGRES_URL + "?sslmode=require",
+//   })
 
 // Testing Connection of the db
 db.authenticate()
