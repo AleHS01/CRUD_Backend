@@ -1,6 +1,6 @@
 const { Sequelize } = require("sequelize");
 const dotenv = require("dotenv").config();
-import * as pg from "pg";
+const pg = require("pg");
 // const { name } = require("../package.json");
 
 /*
