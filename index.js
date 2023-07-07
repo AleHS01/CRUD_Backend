@@ -21,12 +21,12 @@ const serverRun = () => {
 async function main() {
   //await syncDB();
   console.log("This is going to print models: ", db.models);
-  //await db.drop();
+  await db.drop();
   //await db.sync({ force: true });
   await db.sync();
   //await seed();
   await serverRun();
-  await seed().then(() => process.exit());
+  //await seed().then(() => process.exit());
 }
 
 main();
