@@ -10,9 +10,9 @@ databases:
    plan: standard
    repo: https://github.com/render-oss/docker-pgbouncer
    envVars:
-   - key: DATABASE_URL
+   - key: postgres://ttp23crud_user:XNxGl2HOV9hhQWHgBSIVQYe5SpDMKZEQ@dpg-cik22cp8g3nc2gf3ugpg-a/ttp23crud
      fromDatabase:
-       name: mysite
+       name: ttp23crud
        property: connectionString
    - key: POOL_MODE
      value: transaction
@@ -21,4 +21,4 @@ databases:
    - key: MAX_CLIENT_CONN
      value: 500
    - key: DEFAULT_POOL_SIZE
-     value: 50
+     value: 50 
