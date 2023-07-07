@@ -1,5 +1,6 @@
 const { Sequelize } = require("sequelize");
 const dotenv = require("dotenv").config();
+import * as pg from "pg";
 // const { name } = require("../package.json");
 
 /*
@@ -23,6 +24,7 @@ that's what I use to test the connection
 //new version
 const db = new Sequelize(process.env.POSTGRES_URL + "?sslmode=require", {
   logging: false,
+  dialectModule: pg,
 });
 
 // const pool = new Pool({
