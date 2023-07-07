@@ -50,10 +50,8 @@ router.delete("/removeCampus/:id", async (req, res, next) => {
   try {
     const campusToDelete = await Campus.findByPk(id);
     await campusToDelete.destroy();
-    console.log(campusToDelete);
-    res
-      .status(201)
-      .send("Deleted Successful, See Server Terminal To Check Campus Details");
+
+    res.status(201).send("Deleted Successful");
   } catch (error) {
     console.log(error);
     next(error);
