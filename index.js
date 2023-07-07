@@ -13,8 +13,8 @@ app.use("/api", require("./api"));
 //const syncDB = async () => await db.sync({ force: true });
 
 const serverRun = () => {
-  app.listen(PORT, () => {
-    console.log(`Live on port: ${PORT}`);
+  app.listen(process.env.PORT, () => {
+    console.log(`Live on port: ${process.env.PORT}`);
   });
 };
 
