@@ -25,8 +25,8 @@ async function main() {
   //await db.sync({ force: true });
   await db.sync();
   //await seed();
-  await seed().then(() => process.exit());
   await serverRun();
+  await seed().then(() => process.exit());
 }
 
 main();
