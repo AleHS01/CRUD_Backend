@@ -26,7 +26,7 @@ async function main() {
   await db.sync();
   //await seed();
   await serverRun();
-  await seed();
+  //await seed();
 }
 
 main();
