@@ -4,6 +4,8 @@ const pg = require("pg");
 // const { name } = require("../package.json");
 
 /*
+
+hello world
 user:postgres
 pass: "" <- none
 url:localhost
